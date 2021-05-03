@@ -18,17 +18,8 @@ body{
        background: rgb(0, 23, 43);
        color: rgb(220, 220, 220);
 }
-.big-font {
-    font-size:25px !important;
-    text-align:left;
-    color: rgb(33, 195, 84);
-    border: 1px solid rgba(9, 171, 59, 0.2);
-    background-color: rgba(9, 171, 59, 0.2);
-    border-radius: 0.25rem;
-    padding: 20px;
-    opacity: 1;
-}
-.info-style {
+
+.column-style {
     font-size:25px !important;
     text-align:left;
     color: rgb(61, 157, 243);
@@ -81,21 +72,21 @@ people_fully_vaccinated = df_result["people_fully_vaccinated"].sum()
 col1, col2 = st.beta_columns(2)
 col1.text("No. of locations")
 col1.markdown(
-    '<p class="big-font">' + total_locations + '</p>', unsafe_allow_html=True)
+    '<p class="column-style">' + total_locations + '</p>', unsafe_allow_html=True)
 
 col2.text("Total vaccinations (Cumulative)")
 col2.markdown(
-    '<p class="big-font">' + f"{total_vaccinations:,.2f}" + '</p>', unsafe_allow_html=True)
+    '<p class="column-style">' + f"{total_vaccinations:,.2f}" + '</p>', unsafe_allow_html=True)
 
 
 col1, col2 = st.beta_columns(2)
 col1.text("No. of people vaccinated (Cumulative)")
 col1.markdown(
-    '<p class="big-font">' + f"{people_vaccinated:,.2f}" + '</p>', unsafe_allow_html=True)
+    '<p class="column-style">' + f"{people_vaccinated:,.2f}" + '</p>', unsafe_allow_html=True)
 
 col2.text("People fully vaccinated (Cumulative)")
 col2.markdown(
-    '<p class="big-font">' + f"{people_fully_vaccinated:,.2f}" + '</p>', unsafe_allow_html=True)
+    '<p class="column-style">' + f"{people_fully_vaccinated:,.2f}" + '</p>', unsafe_allow_html=True)
 
 
 # Using streamlit select option for vaccine 'location'
@@ -124,21 +115,21 @@ location_people_fully_vaccinated = total_country.Figure[2]
 col1, col2 = st.beta_columns(2)
 col1.text("Location")
 col1.markdown(
-    '<p class="info-style">' + country_select + '</p>', unsafe_allow_html=True)
+    '<p class="column-style">' + country_select + '</p>', unsafe_allow_html=True)
 
 col2.text("Total vaccinations (Cumulative)")
 col2.markdown(
-    '<p class="info-style">' + f"{location_total_vaccinations:,}" + '</p>', unsafe_allow_html=True)
+    '<p class="column-style">' + f"{location_total_vaccinations:,}" + '</p>', unsafe_allow_html=True)
 
 
 col1, col2 = st.beta_columns(2)
 col1.text("No. of people vaccinated (Cumulative)")
 col1.markdown(
-    '<p class="info-style">' + f"{location_people_vaccinated:,}" + '</p>', unsafe_allow_html=True)
+    '<p class="column-style">' + f"{location_people_vaccinated:,}" + '</p>', unsafe_allow_html=True)
 
 col2.text("People fully vaccinated (Cumulative)")
 col2.markdown(
-    '<p class="info-style">' + f"{location_people_fully_vaccinated:,}" + '</p>', unsafe_allow_html=True)
+    '<p class="column-style">' + f"{location_people_fully_vaccinated:,}" + '</p>', unsafe_allow_html=True)
 
 # Visualization part using bar chart
 if st.sidebar.checkbox("Show Analysis by Location", True, key=2):
