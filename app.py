@@ -7,9 +7,6 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 
-CURRENT_THEME = "blue"
-IS_DARK_THEME = True
-
 # Text/Title
 st.title("COVID Vaccination update")
 
