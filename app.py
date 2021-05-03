@@ -20,13 +20,13 @@ body{
 }
 
 .column-style {
-    font-size:25px !important;
+    font-size:20px !important;
     text-align:left;
     color: rgb(61, 157, 243);
     border: 1px solid rgba(28, 131, 225, 0.1);
     background-color: rgba(28, 131, 225, 0.1);
     border-radius: 0.25rem;
-    padding: 20px;
+    padding: 16px;
     opacity: 1;
 }
 </style>
