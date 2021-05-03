@@ -7,12 +7,16 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 
+
 # Text/Title
 st.title("COVID Vaccination update")
 
 
 st.markdown("""
 <style>
+body{
+   background-color: #111;
+}
 .big-font {
     font-size:25px !important;
     text-align:left;
@@ -35,8 +39,6 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
-
-# st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
 
 # load csv data
 
