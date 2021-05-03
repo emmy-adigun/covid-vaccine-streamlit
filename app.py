@@ -15,7 +15,8 @@ st.title("COVID Vaccination update")
 st.markdown("""
 <style>
 body{
-   background-color: #111;
+       background: rgb(0, 23, 43);
+       color: rgb(220, 220, 220);
 }
 .big-font {
     font-size:25px !important;
