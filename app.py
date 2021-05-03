@@ -10,6 +10,34 @@ import matplotlib.pyplot as plt
 # Text/Title
 st.title("COVID Vaccination update")
 
+
+st.markdown("""
+<style>
+.big-font {
+    font-size:25px !important;
+    text-align:left;
+    color: rgb(33, 195, 84);
+    border: 1px solid rgba(9, 171, 59, 0.2);
+    background-color: rgba(9, 171, 59, 0.2);
+    border-radius: 0.25rem;
+    padding: 20px;
+    opacity: 1;
+}
+.info-style {
+    font-size:25px !important;
+    text-align:left;
+    color: rgb(61, 157, 243);
+    border: 1px solid rgba(28, 131, 225, 0.1);
+    background-color: rgba(28, 131, 225, 0.1);
+    border-radius: 0.25rem;
+    padding: 20px;
+    opacity: 1;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# st.markdown('<p class="big-font">Hello World !!</p>', unsafe_allow_html=True)
+
 # load csv data
 
 
@@ -40,7 +68,7 @@ df_result = pd.DataFrame(df_group).replace(np.NaN, 0)
 # show result
 
 # Status declaration
-total_locations = data["location"].nunique()
+total_locations = str(data["location"].nunique())
 total_vaccinations = df_result["total_vaccinations"].sum()
 people_vaccinated = df_result["people_vaccinated"].sum()
 people_fully_vaccinated = df_result["people_fully_vaccinated"].sum()
@@ -49,15 +77,22 @@ people_fully_vaccinated = df_result["people_fully_vaccinated"].sum()
 # using streamlit column layout to display cumulative status result
 col1, col2 = st.beta_columns(2)
 col1.text("No. of locations")
-col1.success(total_locations)
+col1.markdown(
+    '<p class="big-font">' + total_locations + '</p>', unsafe_allow_html=True)
+
 col2.text("Total vaccinations (Cumulative)")
-col2.success(f"{total_vaccinations:,.2f}")
+col2.markdown(
+    '<p class="big-font">' + f"{total_vaccinations:,.2f}" + '</p>', unsafe_allow_html=True)
+
 
 col1, col2 = st.beta_columns(2)
 col1.text("No. of people vaccinated (Cumulative)")
-col1.success(f"{people_vaccinated:,.2f}")
+col1.markdown(
+    '<p class="big-font">' + f"{people_vaccinated:,.2f}" + '</p>', unsafe_allow_html=True)
+
 col2.text("People fully vaccinated (Cumulative)")
-col2.success(f"{people_fully_vaccinated:,.2f}")
+col2.markdown(
+    '<p class="big-font">' + f"{people_fully_vaccinated:,.2f}" + '</p>', unsafe_allow_html=True)
 
 
 # Using streamlit select option for vaccine 'location'
@@ -85,15 +120,22 @@ location_people_fully_vaccinated = total_country.Figure[2]
 
 col1, col2 = st.beta_columns(2)
 col1.text("Location")
-col1.info(country_select)
+col1.markdown(
+    '<p class="info-style">' + country_select + '</p>', unsafe_allow_html=True)
+
 col2.text("Total vaccinations (Cumulative)")
-col2.info(f"{location_total_vaccinations:,}")
+col2.markdown(
+    '<p class="info-style">' + f"{location_total_vaccinations:,}" + '</p>', unsafe_allow_html=True)
+
 
 col1, col2 = st.beta_columns(2)
 col1.text("No. of people vaccinated (Cumulative)")
-col1.info(f"{location_people_vaccinated:,}")
+col1.markdown(
+    '<p class="info-style">' + f"{location_people_vaccinated:,}" + '</p>', unsafe_allow_html=True)
+
 col2.text("People fully vaccinated (Cumulative)")
-col2.info(f"{location_people_fully_vaccinated:,}")
+col2.markdown(
+    '<p class="info-style">' + f"{location_people_fully_vaccinated:,}" + '</p>', unsafe_allow_html=True)
 
 # Visualization part using bar chart
 if st.sidebar.checkbox("Show Analysis by Location", True, key=2):
