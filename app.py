@@ -96,7 +96,7 @@ col2.markdown(
 
 
 # Using streamlit select option for vaccine 'location'
-st.sidebar.checkbox("Show Analysis by Location", True, key=1)
+chck = st.sidebar.checkbox("Show Analysis by Location", True, key=1)
 country_select = st.sidebar.selectbox(
     'Select a Location', df_result['location'])
 selected_country = df_result[df_result['location'] == country_select]
@@ -111,6 +111,11 @@ def get_vaccine_analysis(dataresult):
 
 
 total_country = get_vaccine_analysis(selected_country)
+
+
+if chck:
+    primaryColor = st.get_option("theme.primaryColor")
+
 
 # using stremlit column layout to display status result based on location selected
 st.markdown("## **Location level analysis**")
